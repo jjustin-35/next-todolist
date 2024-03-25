@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,13 +10,16 @@ import { RootState } from "@/redux/store";
 const Toast = () => {
   const dispatch = useDispatch();
   const toast = useSelector((state: RootState) => state.toast);
-  const isInit = !!toast;
+  const isHide =
+    typeof toast.isSuccess !== "boolean" ||
+    toast.message === "" ||
+    toast.id === "";
 
   const onExpire = () => dispatch(clearToast());
 
   return (
     <PortalWrapper id="portalElemnet">
-      {isInit && (
+      {!isHide && (
         <ToastStyle
           isSuccess={toast.isSuccess}
           key={toast.id}

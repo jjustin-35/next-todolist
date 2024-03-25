@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Item from "../ItemContainer";
+import Item from "../Item";
 import Message from "../../components/Message";
 import Tab from "../../components/Tab";
 import ListStyle from "../../components/List";
@@ -14,7 +14,7 @@ const List = () => {
   const [list, setList] = useState<Todo[]>(todos);
   const [tab, setTab] = useState<Tabs>(Tabs.all);
 
-  const onTab = (tab: Tabs) => {
+  useEffect(() => {
     if (tab === Tabs.finished) {
       setList(todos.filter((item) => item.isFinished));
     } else if (tab === Tabs.unfinished) {
@@ -22,6 +22,10 @@ const List = () => {
     } else {
       setList(todos);
     }
+  }, [tab, todos]);
+
+  const onTab = (tab: Tabs) => {
+    setTab(tab);
   };
 
   const content = (() => {

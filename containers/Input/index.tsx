@@ -22,6 +22,7 @@ export const Input = () => {
           id,
         })
       );
+
     dispatch(postTodo({ memo: input, id, isFinished: false }));
     dispatch(
       postToast({

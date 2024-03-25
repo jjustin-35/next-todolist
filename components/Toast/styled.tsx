@@ -53,7 +53,7 @@ export const ToastItem = styled.div<{ isSuccess?: boolean; isShow?: boolean }>`
 
 export const ToastWrapper = styled.div`
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 0;
+  left: 1rem;
   overflow: hidden;
 `;

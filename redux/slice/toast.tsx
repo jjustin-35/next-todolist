@@ -8,7 +8,7 @@ type ToastInitialState = {
 };
 
 const initialState: ToastInitialState = {
-  isSuccess: false,
+  isSuccess: null,
   message: "",
   id: "",
 };
@@ -23,7 +23,7 @@ const toastSlice = createSlice({
       state.id = action.payload.id;
     },
     clearToast: (state) => {
-      state.isSuccess = false;
+      state.isSuccess = null;
       state.message = "";
       state.id = "";
     },

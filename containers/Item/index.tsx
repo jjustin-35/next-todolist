@@ -34,7 +34,7 @@ const Item = ({ todo }: { todo: Todo }) => {
           id: uuidv4(),
         })
       );
-    dispatch(putTodo({ memo, id, isFinished: false }));
+    dispatch(putTodo({ memo, id, isFinished: todo.isFinished }));
     dispatch(
       postToast({
         isSuccess: true,
