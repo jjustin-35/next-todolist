@@ -1,8 +1,15 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { TabButton, TabButtons } from './styled';
+import React from "react";
+import { TabButton, TabButtons } from "./styled";
 
-const TabStyle = ({ options, onTab, tab }) => {
+const TabStyle = ({
+  options,
+  onTab,
+  tab,
+}: {
+  options: string[];
+  onTab: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  tab: string;
+}) => {
   return (
     <TabButtons>
       {options.map((opt) => {
@@ -15,12 +22,6 @@ const TabStyle = ({ options, onTab, tab }) => {
       })}
     </TabButtons>
   );
-};
-
-TabStyle.propTypes = {
-  options: propTypes.array,
-  onTab: propTypes.func,
-  tab: propTypes.string,
 };
 
 export default TabStyle;

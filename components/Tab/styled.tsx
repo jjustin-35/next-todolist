@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const TabButton = styled.button`
+export const TabButton = styled.button<{ isActive: boolean }>`
   border: none;
   border-bottom: 2px solid;
   font-weight: bold;

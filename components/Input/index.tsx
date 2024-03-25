@@ -1,9 +1,11 @@
-import React from 'react';
-import propTypes from 'prop-types';
+import React, { MutableRefObject } from 'react';
 import { InputWrapper, Input, AddButton } from './styled';
 import Icon from '../Icon';
 
-const InputStyle = ({ onAdd, inputRef }) => {
+const InputStyle = ({ onAdd, inputRef }: {
+  onAdd: () => void;
+  inputRef: MutableRefObject<HTMLInputElement>;
+}) => {
   return (
     <InputWrapper>
       <Input ref={inputRef} />
@@ -14,9 +16,5 @@ const InputStyle = ({ onAdd, inputRef }) => {
   );
 };
 
-InputStyle.propTypes = {
-  onAdd: propTypes.func,
-  inputRef: propTypes.any,
-};
 
 export default InputStyle;

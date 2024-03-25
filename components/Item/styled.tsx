@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from "styled-components";
 
 const show = keyframes`
   from{
@@ -19,7 +19,7 @@ const hide = keyframes`
   }
 `;
 
-export const ItemWrapper = styled.div`
+export const ItemWrapper = styled.div<{ isShow: boolean }>`
   animation: ${(props) =>
       props.isShow
         ? css`
@@ -31,16 +31,17 @@ export const ItemWrapper = styled.div`
     ease-out 0.3s forwards;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ isFinished: boolean }>`
   margin: 0;
   padding-left: 1rem;
   padding-right: 1rem;
   color: black;
-  ${(props) => props.isFinished && `text-decoration: line-through; color: gray`};
+  ${(props) =>
+    props.isFinished && `text-decoration: line-through; color: gray`};
   width: 100%;
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ isEdit: boolean }>`
   ${(props) => (props.isEdit ? `display: flex` : `display: none`)};
   width: 100%;
   justify-content: space-between;
@@ -49,10 +50,7 @@ export const ContentWrapper = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const EditInput = styled.input.attrs((props) => ({
-  type: 'text',
-  defaultValue: props.preValue,
-}))`
+export const EditInput = styled.input`
   width: 100%;
   margin-right: 1rem;
   margin-left: 1rem;
@@ -65,7 +63,7 @@ export const Option = styled.a`
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => props.color || 'black'};
+  color: ${(props) => props.color || "black"};
   white-space: nowrap;
   vertical-align: middle;
 `;

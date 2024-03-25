@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Brand = styled.div`
+export const Brand = styled.div<{ appearance?: string }>`
   @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
   font-family: 'Acme', sans-serif;
   text-align: center;

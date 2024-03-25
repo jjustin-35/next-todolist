@@ -23,14 +23,14 @@ export const Container = styled.div`
   }
 `;
 
-export const Row = styled.div`
+export const Row = styled.div<{ justify?: string }>`
   display: flex;
   justify-content: ${(props) => props.justify || 'center'};
 `;
 
 const countWidth = (col) => col * (1 / 12) * 100;
 
-export const Col = styled.div`
+export const Col = styled.div<{ xs: number; md?: number; lg?: number; xl?: number }>`
   width: ${(props) => countWidth(props.xs)}%;
   padding-left: ${gutter / 2}px;
   padding-right: ${gutter / 2}px;

@@ -1,12 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
-import propTypes from 'prop-types';
 import { ItemWrapper, Text, Option, ContentWrapper, EditInput } from './styled';
 import Icon from '../Icon';
 
-const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
+const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }: {
+  onCheck: () => void;
+  onDelete: () => void;
+  onEditFinished: (value: string) => void;
+  todo: {
+    memo: string;
+    isFinished: boolean;
+  };
+}) => {
   const { memo, isFinished } = todo;
-  const editRef = useRef();
-  const itemRef = useRef();
+  const editRef = useRef(null);
+  const itemRef = useRef<HTMLDivElement>(null);
 
   const [isEdit, setIsEdit] = useState(false);
   const [isShow, setIsShow] = useState(true);
@@ -42,7 +49,7 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
         </Option>
       </ContentWrapper>
       <ContentWrapper isEdit={isEdit}>
-        <EditInput preValue={memo} ref={editRef} />
+        <EditInput defaultValue={memo} ref={editRef} type='text'  />
         <Option
           onClick={() => {
             setIsEdit(!isEdit);
@@ -54,13 +61,6 @@ const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }) => {
       </ContentWrapper>
     </ItemWrapper>
   );
-};
-
-ItemStyle.propTypes = {
-  onCheck: propTypes.func,
-  onEditFinished: propTypes.func,
-  onDelete: propTypes.func,
-  todo: propTypes.object,
 };
 
 export default ItemStyle;

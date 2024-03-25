@@ -19,7 +19,7 @@ const hide = keyframes`
   }
 `;
 
-export const ToastItem = styled.div`
+export const ToastItem = styled.div<{ isSuccess?: boolean; isShow?: boolean }>`
   ${(props) =>
     props.isSuccess
       ? css`

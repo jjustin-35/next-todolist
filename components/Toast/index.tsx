@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import propTypes from 'prop-types';
 import { ToastItem, ToastWrapper } from './styled';
 import Icon from '../Icon';
 
-const ToastStyle = ({ isSuccess, children, onExpire }) => {
-  const toastRef = useRef();
+const ToastStyle = ({ isSuccess, children, onExpire }: {
+  isSuccess: boolean;
+  children: React.ReactNode;
+  onExpire: () => void;
+}) => {
+  const toastRef = useRef<HTMLDivElement>(null);
   const [isShow, setIsShow] = useState(true);
 
   useEffect(() => {
@@ -35,13 +38,6 @@ const ToastStyle = ({ isSuccess, children, onExpire }) => {
       </ToastItem>
     </ToastWrapper>
   );
-};
-
-ToastStyle.propTypes = {
-  isSuccess: propTypes.bool,
-  children: propTypes.any,
-  ref: propTypes.any,
-  onExpire: propTypes.func,
 };
 
 export default ToastStyle;
