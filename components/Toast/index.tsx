@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ToastItem, ToastWrapper } from './styled';
 import Icon from '../Icon';
 
-const ToastStyle = ({ isSuccess, children, onExpire }: {
+const Toast = ({ isSuccess, children, onExpire }: {
   isSuccess: boolean;
   children: React.ReactNode;
   onExpire: () => void;
@@ -40,4 +40,4 @@ const ToastStyle = ({ isSuccess, children, onExpire }: {
   );
 };
 
-export default ToastStyle;
+export default Toast;
