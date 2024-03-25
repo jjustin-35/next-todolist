@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
-import propTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const PortalWrapper = ({ children, id }) => {
+const PortalWrapper = ({ children, id }: {
+  children: React.ReactNode;
+  id: string;
+}) => {
   const [portalElement, setPortalElement] = useState(null);
 
   useEffect(() => {
@@ -28,11 +30,6 @@ const PortalWrapper = ({ children, id }) => {
   if (!portalElement) return null;
 
   return createPortal(children, portalElement);
-};
-
-PortalWrapper.propTypes = {
-  children: propTypes.any,
-  id: propTypes.string,
 };
 
 export default PortalWrapper;

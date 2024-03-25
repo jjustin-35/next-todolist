@@ -1,16 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { Todo } from "@/constants/type";
 
-type Todo = {
-  id: string;
-  memo: string;
-  isFinished: boolean;
-};
-
-type InitialState = {
+type TodoInitialState = {
   todos: Todo[];
 };
 
-const initialState: InitialState = {
+const initialState: TodoInitialState = {
   todos: [],
 };
 

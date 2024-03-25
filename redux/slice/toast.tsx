@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit/react";
 
-type InitialState = {
+type ToastInitialState = {
   isSuccess: boolean;
   message: string;
   id: string;
 };
 
-const initialState: InitialState = {
+const initialState: ToastInitialState = {
   isSuccess: false,
   message: "",
   id: "",
@@ -17,7 +17,7 @@ const toastSlice = createSlice({
   name: "toast",
   initialState,
   reducers: {
-    postToast: (state, action: PayloadAction<InitialState>) => {
+    postToast: (state, action: PayloadAction<ToastInitialState>) => {
       state.isSuccess = action.payload.isSuccess;
       state.message = action.payload.message;
       state.id = action.payload.id;

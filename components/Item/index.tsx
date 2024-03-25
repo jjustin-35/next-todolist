@@ -1,15 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ItemWrapper, Text, Option, ContentWrapper, EditInput } from './styled';
 import Icon from '../Icon';
+import { Todo } from '@/constants/type';
 
 const ItemStyle = ({ onCheck, onDelete, onEditFinished, todo }: {
   onCheck: () => void;
   onDelete: () => void;
   onEditFinished: (value: string) => void;
-  todo: {
-    memo: string;
-    isFinished: boolean;
-  };
+  todo: Todo;
 }) => {
   const { memo, isFinished } = todo;
   const editRef = useRef(null);
