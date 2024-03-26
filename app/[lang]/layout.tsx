@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Registry from "@/libs/styledComponentRegistry";
 import Provider from "@/libs/reduxProvider";
-import { GlobalStyle } from "../_globalStyle";
+import { GlobalStyle } from "./_globalStyle";
 import { languages } from "@/constants/languages";
+import { initI18next } from "@/libs/i18n/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,16 +14,18 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }))
+  return languages.map((lng) => ({ lng }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  param: { lang = "en" },
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
-  param: { lang: string };
+  params: { lang: string };
 }>) {
+  await initI18next(lang);
+
   return (
     <html lang={lang}>
       <head>
@@ -34,7 +37,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Registry>
           <GlobalStyle />
-          <Provider>{children}</Provider>
+          <Provider>
+            {children}
+          </Provider>
         </Registry>
       </body>
     </html>

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -8,11 +8,13 @@ import Tab from "../../components/Tab";
 import ListStyle from "../../components/List";
 import { RootState } from "@/redux/store";
 import { Todo, Tabs } from "@/constants/type";
+import { useTranslation } from "@/libs/i18n/client";
 
-const List = () => {
+const List = ({ lang }: { lang: string }) => {
   const { todos } = useSelector((state: RootState) => state.todolist);
   const [list, setList] = useState<Todo[]>(todos);
   const [tab, setTab] = useState<Tabs>(Tabs.all);
+  const { t } = useTranslation(lang, "common");
 
   useEffect(() => {
     if (tab === Tabs.finished) {
@@ -37,7 +39,7 @@ const List = () => {
 
   return (
     <>
-      <Tab tab={tab} onTab={onTab} />
+      <Tab t={t} tab={tab} onTab={onTab} />
       <ListStyle>{content}</ListStyle>
     </>
   );

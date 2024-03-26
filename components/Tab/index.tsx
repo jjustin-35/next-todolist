@@ -1,8 +1,8 @@
 import React from "react";
 import { TabButton, TabButtons } from "./styled";
-import { Tabs } from "@/constants/type";
+import { Tabs, TFucntionType } from "@/constants/type";
 
-const Tab = ({ onTab, tab }: { onTab: (tab: Tabs) => void; tab: string }) => {
+const Tab = ({ t, onTab, tab }: { t: TFucntionType, onTab: (tab: Tabs) => void; tab: string }) => {
   let options = [Tabs.all, Tabs.finished, Tabs.unfinished];
   return (
     <TabButtons>
@@ -15,7 +15,7 @@ const Tab = ({ onTab, tab }: { onTab: (tab: Tabs) => void; tab: string }) => {
             id={opt}
             onClick={() => onTab(opt)}
           >
-            {opt}
+            {t(opt)}
           </TabButton>
         );
       })}

@@ -5,7 +5,9 @@ export type Todo = {
 };
 
 export enum Tabs {
-  all = "all",
-  finished = "finished",
-  unfinished = "unfinished",
+  all = "tab-all",
+  finished = "tab-finished",
+  unfinished = "tab-unfinished",
 }
+
+export type TFucntionType = (key: string) => string;
