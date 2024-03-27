@@ -36,8 +36,8 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <Registry>
-          <GlobalStyle />
           <Provider>
+            <GlobalStyle />
             {children}
           </Provider>
         </Registry>
