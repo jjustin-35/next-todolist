@@ -28,7 +28,7 @@ export const initI18next = async (lng: string, ns?: string | string[]) => {
     .use(
       resourcesToBackend(
         async (language: string, namespace: string) =>
-          await import(`./locales/${language}/${namespace}.json`)
+          await import(`/public/locales/${language}/${namespace}.json`)
       )
     )
     .init({

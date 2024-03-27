@@ -19,7 +19,7 @@ i18next
   .use(LanguageDetector)
   .use(
     resourcesToBackend(
-      (lng: string, ns: string) => import(`./locales/${lng}/${ns}.json`)
+      (lng: string, ns: string) => import(`/public/locales/${lng}/${ns}.json`)
     )
   )
   .init({
