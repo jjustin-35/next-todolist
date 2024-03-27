@@ -4,7 +4,6 @@ import { cache } from "react";
 import { createInstance, i18n } from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next/initReactI18next";
-import { languages } from "@/constants/languages";
 import { getOptions } from "./settings";
 
 const i18nCache = cache(() => {
@@ -33,7 +32,6 @@ export const initI18next = async (lng: string, ns?: string | string[]) => {
       )
     )
     .init({
-      supportedLngs: languages,
       ...getOptions(lng, ns),
       preload: [lng],
     });

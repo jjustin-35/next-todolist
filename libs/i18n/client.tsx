@@ -28,6 +28,7 @@ i18next
     detection: {
       order: ["path", "htmlTag", "cookie", "navigator"],
     },
+    lowerCaseLng: true,
     preload: runsOnServerSide ? languages : [],
   });
 
