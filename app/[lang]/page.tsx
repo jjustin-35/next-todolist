@@ -4,6 +4,7 @@ import List from "../../containers/List";
 import { Input } from "../../containers/Input";
 import Background from "../../components/Background";
 import Toast from "../../containers/Toast";
+import Footer from "../../components/Footer";
 
 function Home({ params: { lang } }: { params: { lang: string } }) {
   return (
@@ -14,6 +15,7 @@ function Home({ params: { lang } }: { params: { lang: string } }) {
         <List lang={lang} />
       </TodolistWrapper>
       <Toast />
+      <Footer lang={lang} />
     </Background>
   );
 }
